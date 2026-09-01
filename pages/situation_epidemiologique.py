@@ -89,7 +89,7 @@ geo_agg = fdf.groupby(["district_id", "district", "region"], as_index=False).agg
 geo_agg = geo_agg.merge(districts_geo, on="district_id", how="left")
 geo_agg = geo_agg[geo_agg[col_val] >= 0]
 
-fig_map = px.scatter_mapbox(
+fig_map = px.scatter_map(
     geo_agg,
     lat="lat", lon="lon",
     size=col_val,
@@ -103,7 +103,7 @@ fig_map = px.scatter_mapbox(
     height=520,
 )
 fig_map.update_layout(
-    mapbox_style="open-street-map",
+    map_style="open-street-map",
     margin=dict(l=0, r=0, t=10, b=0),
     coloraxis_colorbar=dict(title=indicateur),
     font=dict(family="Poppins, sans-serif", size=13),

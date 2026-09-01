@@ -72,7 +72,7 @@ geo = last.groupby(["district_id", "district", "region", "statut"], as_index=Fal
 )
 geo = geo.merge(districts_geo, on="district_id", how="left")
 
-fig_map = px.scatter_mapbox(
+fig_map = px.scatter_map(
     geo,
     lat="lat", lon="lon",
     size=col_val,
@@ -86,7 +86,7 @@ fig_map = px.scatter_mapbox(
     height=500,
 )
 fig_map.update_layout(
-    mapbox_style="open-street-map",
+    map_style="open-street-map",
     margin=dict(l=0, r=0, t=10, b=0),
     coloraxis_colorbar=dict(title=indicateur),
     font=dict(family="Poppins, sans-serif", size=13),

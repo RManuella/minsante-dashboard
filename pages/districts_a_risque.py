@@ -49,7 +49,7 @@ color_map = STATUS_COLORS
 size_map = {"Épidémique": 24, "Alerte": 16, "Normal": 8}
 fdf["taille"] = fdf["statut_pire"].map(size_map)
 
-fig_map = px.scatter_mapbox(
+fig_map = px.scatter_map(
     fdf,
     lat="lat", lon="lon",
     color="statut_pire",
@@ -65,7 +65,7 @@ fig_map = px.scatter_mapbox(
     labels={"statut_pire": "Statut"},
 )
 fig_map.update_layout(
-    mapbox_style="open-street-map",
+    map_style="open-street-map",
     margin=dict(l=0, r=0, t=10, b=0),
     legend_title_text="Statut",
     font=dict(family="Poppins, sans-serif", size=13),
